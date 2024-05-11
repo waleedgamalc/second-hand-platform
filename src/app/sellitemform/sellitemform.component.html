@@ -1,0 +1,21 @@
+<form #createProductForm = "ngForm" >
+    <h2>Sell Product</h2>
+    <div class="form-group">
+      <label for="product-photo">Product Photo</label>
+      <input type="file" id="product-photo" name="photo" (change) = "onFileChange ($event)" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="product-name">Product Name</label>
+      <input type="text" id="product-name" name="name" ngModel required>
+    </div>
+    <div class="form-group">
+      <label for="product-description">Product Description</label>
+      <textarea id="product-description" name="description" rows="5" ngModel required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="product-price">Product Price</label>
+      <input type="number" id="product-price" name="price" ngModel required>
+    </div>
+    <button type="submit" (click) = "submitForm ()">Submit Product</button>
+</form>
+  

@@ -1,0 +1,11 @@
+{
+  "hosting": [
+    {
+      "target": "second-hand-goods",
+      "source": ".",
+      "frameworksBackend": {
+        "region": "us-central1"
+      }
+    }
+  ]
+}

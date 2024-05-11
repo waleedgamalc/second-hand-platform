@@ -1,0 +1,11 @@
+<section>
+    <form>
+      <input type="text" placeholder="Filter by product" #filter>
+      <button class="primary" type="button" (click)="filterResults(filter.value)"> Search</button>
+      <a [routerLink]="['sell']" class="primary">Sell item</a> </form>
+  </section>
+  
+  <section class="results">
+    <app-products-location  *ngFor = "let product of filteredProductList "
+    [product] = "product"></app-products-location>
+  </section>

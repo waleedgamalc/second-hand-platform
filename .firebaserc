@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "second-hand-platform-39517": {
+      "hosting": {
+        "second-hand-goods": [
+          "second-hand-platform-39517"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "second-hand-platform-39517"
+  }
+}

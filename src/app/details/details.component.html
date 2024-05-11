@@ -1,0 +1,16 @@
+<article>
+    <img class="listing-photo" [src]="Product?.photo"
+      alt="Exterior photo of {{Product?.name}}"/>
+    <section class="listing-description">
+      <h2 class="listing-heading">{{Product?.name}}</h2>
+      <p class="listing-location">{{Product?.username}}, {{Product?.state}}</p>
+    </section>
+    <section class="listing-features">
+      <h2 class="section-heading">About this Product</h2>
+      <ul>
+        <li>Seller: {{Product?.username}}</li>
+        <li>Description: {{Product?.description}}</li>
+        <li>Status of the product: {{Product?.state}}</li>
+      </ul>
+    </section>
+  </article>
