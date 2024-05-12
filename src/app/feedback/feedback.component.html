@@ -1,1 +1,9 @@
-<p>feedback works!</p>
+<h2 style="color: purple;">Feedback on the Seller</h2>
+
+<div class="rating">
+  <span *ngFor="let star of stars; let i = index" (click)="rate(i + 1)" [class.active]="i < currentRate">&#9733;</span>
+</div>
+
+<textarea [(ngModel)]="feedback" placeholder="Leave your feedback here..."></textarea>
+
+<button (click)="submitFeedback()">Submit Feedback</button>

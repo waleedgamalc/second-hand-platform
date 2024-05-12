@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
 import { SellitemformComponent } from './sellitemform/sellitemform.component';
 import { LoginComponent } from './login/login.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,11 @@ const routes: Routes = [
     path: 'sell',
     component: SellitemformComponent,
     title: 'Sell Form'
+  },
+  {
+    path:'feedback/:username', 
+    component: FeedbackComponent , 
+    title:"feedback form"
   }
 ];
 
