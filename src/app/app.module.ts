@@ -18,7 +18,8 @@ import { NgForm } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat'
 import {AngularFireStorageModule} from '@angular/fire/compat/storage';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component'
+import { RegisterComponent } from './register/register.component';
+import { FeedbackComponent } from './feedback/feedback.component'
 
 @NgModule({
 
@@ -29,7 +30,8 @@ import { RegisterComponent } from './register/register.component'
     DetailsComponent,
     SellitemformComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
