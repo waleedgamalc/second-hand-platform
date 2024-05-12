@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { Firestore } from '@angular/fire/firestore';
 import { addDoc , collection } from 'firebase/firestore';
 import { AngularFireStorage} from '@angular/fire/compat/storage'
+import { LoginComponent } from '../login/login.component';
+import { UsernameService } from '../username.service';
 
 @Component({
   selector: 'app-sellitemform',
@@ -13,7 +15,7 @@ import { AngularFireStorage} from '@angular/fire/compat/storage'
 export class SellitemformComponent {
 
   
-  constructor (private FirebaseService : FirebaseService , firestore: Firestore , private FireStorage : AngularFireStorage) {}
+  constructor (private FirebaseService : FirebaseService  , private FireStorage : AngularFireStorage , private userService: UsernameService) {}
   
   @ViewChild ("createProductForm") productForm : any;
 
@@ -42,6 +44,7 @@ async onFileChange (event : any){
 
 firestore : Firestore = inject(Firestore);
 saveData (): void {
+  const username = this.userService.username;
   const acollection = collection(this.firestore , 'product')
   addDoc (acollection,{
     'photo' : this.uploadedPhotoUrl,
@@ -49,14 +52,19 @@ saveData (): void {
     'description' : this.productForm.value.description,
     'price' : this.productForm.value.price,
     'state' : 'Available',
-    'username': 'yasser'
+    'username' : username
   })
 }
 
 submitForm () : void{
-alert(this.productForm.value.name)
-this.saveData();
-this.resetForm();
-}
+  // if (this.productForm.form.valid) {
+    this.saveData();
+    this.resetForm();
+    alert(this.productForm.value.name)
+    // }
+    // else {
+    //   alert("Form is invalid");
+    // }
+  }
 
 }

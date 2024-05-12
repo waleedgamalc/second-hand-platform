@@ -16,7 +16,9 @@ import { environment } from '../environments/environment';
 import { SellitemformComponent } from './sellitemform/sellitemform.component';
 import { NgForm } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat'
-import {AngularFireStorageModule} from '@angular/fire/compat/storage'
+import {AngularFireStorageModule} from '@angular/fire/compat/storage';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component'
 
 @NgModule({
 
@@ -25,7 +27,9 @@ import {AngularFireStorageModule} from '@angular/fire/compat/storage'
     HomeComponent,
     ProductsLocationComponent,
     DetailsComponent,
-    SellitemformComponent
+    SellitemformComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -42,4 +46,4 @@ import {AngularFireStorageModule} from '@angular/fire/compat/storage'
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
