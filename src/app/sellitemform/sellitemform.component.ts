@@ -61,6 +61,7 @@ submitForm () : void{
     this.saveData();
     this.resetForm();
     alert(this.productForm.value.name)
+   
     // }
     // else {
     //   alert("Form is invalid");

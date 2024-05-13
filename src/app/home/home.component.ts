@@ -14,7 +14,7 @@ export class HomeComponent {
   productList!: Product[];
   filteredProductList : Product[] | undefined;
 
-  constructor(private productService:ProductService ) {
+  constructor(private productService:ProductService) {
     this.productService.productList$.subscribe((products) => {
     this.productList = products;
     this.filteredProductList = products;

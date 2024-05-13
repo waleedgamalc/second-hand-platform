@@ -3,5 +3,8 @@
     <h2 class="listing-heading">{{ product.name }}</h2>
     <p class="listing-location">{{product.username}} - {{ product.price}} EG - {{product.state}}</p>
     <a [routerLink]="['/details', product.id]">Learn More</a>
-    <button [routerLink]="['/feedback',product.username ]">Buy</button>
+    <button (click)="buyProduct()" [routerLink]="['/feedback',product.username ]">Buy</button>
   </section>
+
+
+

@@ -6,6 +6,8 @@ import { SellitemformComponent } from './sellitemform/sellitemform.component';
 import { LoginComponent } from './login/login.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
+import { UserprofileComponent } from './userprofile/userprofile.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -31,6 +33,11 @@ const routes: Routes = [
     path:'feedback/:username', 
     component: FeedbackComponent , 
     title:"feedback form"
+  },
+  {
+    path:'userprofile',
+    component: UserprofileComponent,
+    title:"purchases form"
   }
 ];
 

@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="section">
+      <h2 style="color: purple;">Your purchases : </h2>
+      <section class="results">
+        <div *ngIf="filteredProductList && filteredProductList.length > 0; else noProducts" class="purchase-section">
+          <app-products-location *ngFor="let product of filteredProductList" [product]="product"></app-products-location>
+        </div>
+        <ng-template #noProducts>
+          <p>No products found.</p>
+        </ng-template>
+      </section>
+    </div>
+  
+    <div class="section">
+      <h2 style="color: purple;">Your Listings : </h2>
+      <section class="results">
+        <div *ngIf="otherFilteredProductList && otherFilteredProductList.length > 0; else noOtherProducts" class="purchase-section">
+          <app-products-location *ngFor="let product of otherFilteredProductList" [product]="product"></app-products-location>
+        </div>
+        <ng-template #noOtherProducts>
+          <p>No other products found.</p>
+        </ng-template>
+      </section>
+    </div>
+  </div>
+  

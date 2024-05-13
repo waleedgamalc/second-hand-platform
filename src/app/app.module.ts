@@ -19,7 +19,9 @@ import { AngularFireModule } from '@angular/fire/compat'
 import {AngularFireStorageModule} from '@angular/fire/compat/storage';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { FeedbackComponent } from './feedback/feedback.component'
+import { FeedbackComponent } from './feedback/feedback.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+
 
 @NgModule({
 
@@ -31,7 +33,8 @@ import { FeedbackComponent } from './feedback/feedback.component'
     SellitemformComponent,
     LoginComponent,
     RegisterComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    UserprofileComponent
   ],
   imports: [
     BrowserModule,
