@@ -59,6 +59,9 @@ body {
   }
   
   .login-container button:hover {
-    background-color: #3e8e41; /* Darker green on hover */
+    background-color: purple; /* Darker green on hover */
   }
-  
+  button
+  {
+    margin-left: 10px;
+  }

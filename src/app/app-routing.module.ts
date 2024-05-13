@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,12 @@ const routes: Routes = [
     component: LoginComponent,
     title: 'Login Page'
   },
+  {
+    path:'register',
+    component:RegisterComponent,
+    title:'register-form'
+  }
+  ,
   {
     path: 'home',
     component: HomeComponent,

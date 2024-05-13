@@ -1,10 +1,7 @@
-<section class="listing">
-    <img class="listing-photo" [src]="product.photo" alt="Exterior photo of {{product.name}}">
-    <h2 class="listing-heading">{{ product.name }}</h2>
-    <p class="listing-location">{{product.username}} - {{ product.price}} EG - {{product.state}}</p>
-    <a [routerLink]="['/details', product.id]">Learn More</a>
-    <button (click)="buyProduct()" [routerLink]="['/feedback',product.username ]">Buy</button>
-  </section>
-
-
-
+<section class="listing" [class.sold]="product.state === 'Sold'">
+  <img class="listing-photo" [src]="product.photo" alt="Exterior photo of {{product.name}}">
+  <h2 class="listing-heading">{{ product.name }}</h2>
+  <p class="listing-location">{{product.username}} - {{ product.price}} EG - {{product.state}}</p>
+  <a [routerLink]="['/details', product.id]">Learn More</a>
+  <button (click)="buyProduct()" [routerLink]="['/feedback',product.username ]">Buy</button>
+</section>

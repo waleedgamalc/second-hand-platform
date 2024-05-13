@@ -6,6 +6,7 @@ import { UsernameService } from '../username.service';
 import { ProductService } from '../services/product.service';
 import { ProductsLocationComponent } from '../products-location/products-location.component';
 import { ActivatedRoute, Route } from '@angular/router';
+import { Router } from '@angular/router'; // Import Router
 
 @Component({
   selector: 'app-feedback',
@@ -18,7 +19,7 @@ export class FeedbackComponent {
   feedback = '';
   username = '';
   seller='';
-  constructor(private firestore: Firestore, private FireStorage: AngularFireStorage , private userservice: UsernameService , private route : ActivatedRoute) {}
+  constructor(private firestore: Firestore, private FireStorage: AngularFireStorage , private userservice: UsernameService , private route : ActivatedRoute , private router: Router) {}
   
 
   rate(rate: number): void {
@@ -44,5 +45,6 @@ export class FeedbackComponent {
     // Reset the form after submission
     this.currentRate = 0;
     this.feedback = '';
+    this.router.navigateByUrl('/home')
   }
 }

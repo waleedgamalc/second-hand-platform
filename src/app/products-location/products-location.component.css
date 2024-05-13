@@ -34,3 +34,6 @@
     color: white;
     border-radius: 8px;
   }
+  .sold .listing-location {
+    color: red;
+}
