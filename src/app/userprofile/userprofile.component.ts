@@ -31,7 +31,7 @@ export class UserprofileComponent implements OnInit {
   filterResults(text: string) {
     if (!text) {
       this.filteredProductList = this.productList.filter(product =>
-        product.buyer === this.userService.username && product.state === 'sold'
+        product.buyer === this.userService.username && product.state === 'Sold'
       );
       return;
     }
@@ -40,7 +40,7 @@ export class UserprofileComponent implements OnInit {
       product =>
         product.name.toLowerCase().includes(text.toLowerCase()) &&
         product.buyer === this.userService.username &&
-        product.state === 'sold'
+        product.state === 'Sold'
     );
   }
 

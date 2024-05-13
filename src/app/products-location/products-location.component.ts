@@ -22,7 +22,7 @@ export class ProductsLocationComponent {
     if (loggedInUsername && productId) {
       await updateDoc(productDocRef, {
         buyer: loggedInUsername,
-        state: 'sold'
+        state: 'Sold'
       });
       console.log('Product purchased successfully.');
     } else {
