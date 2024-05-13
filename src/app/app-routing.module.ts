@@ -8,6 +8,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { RegisterComponent } from './register/register.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
 
 const routes: Routes = [
   {
@@ -45,7 +46,13 @@ const routes: Routes = [
     path:'userprofile',
     component: UserprofileComponent,
     title:"purchases form"
+  },
+  {
+    path:'analytics', 
+    component: AnalyticsComponent , 
+    title:"Analytics and Reporting"
   }
+
 ];
 
 @NgModule({

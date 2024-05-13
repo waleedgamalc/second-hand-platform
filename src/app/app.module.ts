@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     LoginComponent,
     RegisterComponent,
     FeedbackComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    AnalyticsComponent
   ],
   imports: [
     BrowserModule,

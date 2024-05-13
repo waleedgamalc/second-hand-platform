@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Product } from '../product';
-import { getFirestore,addDoc, DocumentReference } from 'firebase/firestore';
+import { getFirestore,addDoc, DocumentReference, query, where } from 'firebase/firestore';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import {AngularFireAuth} from '@angular/fire/compat/auth'
 import { AngularFirestore } from '@angular/fire/compat/firestore'
@@ -44,4 +44,13 @@ export class FirebaseService {
   getProducts(): Observable<Product[]> {
     const productCollection = collection(this.firestore, 'product');
     return collectionData(productCollection, { idField: 'id' }) as Observable<Product[]>;
-  }}
+  }
+
+  // Read products for a specific seller
+  getProductsForSeller(username: string): Observable<Product[]> {
+    const productCollection = collection(this.firestore, 'product');
+    const sellerQuery = query(productCollection, where('username', '==', username));
+    return collectionData(sellerQuery, { idField: 'id' }) as Observable<Product[]>;
+  }
+
+}
