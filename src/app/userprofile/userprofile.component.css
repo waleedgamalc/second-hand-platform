@@ -69,3 +69,7 @@ button {
 .section {
   flex: 1;
 }
+
+h1{
+  margin-bottom: 40px;
+}
