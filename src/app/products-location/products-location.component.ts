@@ -13,6 +13,7 @@ export class ProductsLocationComponent {
   @Input() product!: Product;
 
   constructor(private usernameService: UsernameService, private firestore: Firestore) {}
+  username_not_buy : string = this.usernameService.username;
 
   async buyProduct(): Promise<void> {
     const loggedInUsername = this.usernameService.username;

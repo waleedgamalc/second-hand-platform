@@ -17,6 +17,7 @@ export class UserprofileComponent implements OnInit {
     private productService: ProductService,
     private userService: UsernameService
   ) {}
+   username_h1: string = this.userService.username ;
 
   ngOnInit() {
     this.productService.productList$.subscribe((products) => {
@@ -25,6 +26,7 @@ export class UserprofileComponent implements OnInit {
       this.filterResults('');
       this.filterByUsername();
       this.filterForOtherSection();
+    
     });
   }
 
