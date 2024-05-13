@@ -22,6 +22,7 @@
     "@angular/platform-server": "^17.3.0",
     "@angular/router": "^17.3.0",
     "@angular/ssr": "^17.3.4",
+    "chart.js": "^4.4.2",
     "express": "^4.18.2",
     "firebase": "^10.11.1",
     "firebase-tools": "^13.8.2",

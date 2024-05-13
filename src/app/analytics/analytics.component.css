@@ -1,0 +1,30 @@
+.chart-container {
+    width: 400px; 
+    height: 400px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-start; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    margin: 30px auto; 
+  }
+  
+  #pieChart {
+    flex: 1; 
+    margin-top: 10px; 
+  }
+  
+  .chart-stats {
+    text-align: center;
+    padding: 10px; 
+    background-color: #f5f5f5; 
+    border-top: 1px solid #ddd; 
+    border-radius: 0 0 5px 5px; 
+    font-weight: bold;
+  }
+  
+  .chart-stats p {
+    margin-bottom: 5px; 
+  }
+  
