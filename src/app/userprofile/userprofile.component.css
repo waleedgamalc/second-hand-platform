@@ -73,3 +73,37 @@ button {
 h1{
   margin-bottom: 40px;
 }
+
+
+/* Styles for Feedbacks section */
+.section {
+  margin: 20px 0;
+}
+
+h2 {
+  color: purple;
+}
+
+.results {
+  margin-top: 10px;
+}
+
+.feedback-section {
+  margin-bottom: 20px;
+}
+
+.feedback-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.feedback-item p {
+  margin: 5px 0;
+}
+
+.no-feedbacks {
+  color: #999;
+}

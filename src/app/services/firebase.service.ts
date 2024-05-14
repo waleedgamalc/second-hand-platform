@@ -6,6 +6,7 @@ import { getFirestore,addDoc, DocumentReference, query, where } from 'firebase/f
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import {AngularFireAuth} from '@angular/fire/compat/auth'
 import { AngularFirestore } from '@angular/fire/compat/firestore'
+import { Feedback } from '../feedback';
 
 interface UserData {
   username: string;
@@ -40,11 +41,19 @@ export class FirebaseService {
     });
   }
 
+
+  getFeedbacks(): Observable<Feedback[]> {
+    const feedbackCollection = collection(this.firestore, 'feedback'); // Assuming 'feedback' is the collection name
+    return collectionData(feedbackCollection, { idField: 'id' }) as Observable<Feedback[]>;
+  }
+
   //Read all products
   getProducts(): Observable<Product[]> {
     const productCollection = collection(this.firestore, 'product');
     return collectionData(productCollection, { idField: 'id' }) as Observable<Product[]>;
   }
+
+  
 
   // Read products for a specific seller
   getProductsForSeller(username: string): Observable<Product[]> {
