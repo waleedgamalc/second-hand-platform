@@ -61,5 +61,9 @@ export class FirebaseService {
     const sellerQuery = query(productCollection, where('username', '==', username));
     return collectionData(sellerQuery, { idField: 'id' }) as Observable<Product[]>;
   }
-
+  getwishlist(): Observable<Product[]>{
+    const wishlistCollection = collection(this.firestore, "wishlist");
+    return collectionData(wishlistCollection, {idField: "id"}) as Observable<Product[]>;
+  }
+  
 }

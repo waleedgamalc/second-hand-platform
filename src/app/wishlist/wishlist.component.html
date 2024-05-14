@@ -1,1 +1,12 @@
-<h1>hello this is WishList</h1>
+<div class="container">
+  <div class="section">
+    <h2 style="color: purple;">Your purchases : </h2>
+    <section class="results">
+      <div class="purchase-section">
+        <app-products-location *ngFor="let product of prodList" [product]="product"></app-products-location>
+      </div>
+      <ng-template #noProducts>
+        <p>No products found.</p>
+      </ng-template>
+    </section>
+  </div>

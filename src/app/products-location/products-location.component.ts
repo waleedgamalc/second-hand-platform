@@ -33,12 +33,19 @@ export class ProductsLocationComponent {
     }
   }
   firestor : Firestore = inject(Firestore);
+  
   add_to_wishlist (): void {
   const username = this.usernameService.username;
   const acollection = collection(this.firestor , 'wishlist')
   addDoc(acollection,{
-    Id : this.product.id,
-    username : username
+    id : this.product.id,
+    username : username,
+    name : this.product.name,
+    price: this.product.price,
+    description: this.product.description,
+    state: this.product.state,
+    photo: this.product.photo,
+    buyer: this.product.buyer,
   })
 }
 }
