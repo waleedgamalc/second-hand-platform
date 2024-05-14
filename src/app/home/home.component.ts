@@ -3,6 +3,7 @@ import { ProductsLocationComponent } from '../products-location/products-locatio
 import { Product } from '../product';
 import { ProductService } from '../services/product.service';
 import { FirebaseService } from '../services/firebase.service';
+import { WishlistComponent } from '../wishlist/wishlist.component';
 
 @Component({
   selector: 'app-home',
@@ -31,7 +32,7 @@ export class HomeComponent {
         product?.name.toLowerCase().includes(text.toLowerCase())
       );
     }
-  
+    
 }
 
 
