@@ -22,6 +22,7 @@ import { RegisterComponent } from './register/register.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 
 
@@ -38,6 +39,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
     FeedbackComponent,
     UserprofileComponent,
     AnalyticsComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,

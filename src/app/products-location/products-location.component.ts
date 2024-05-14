@@ -1,8 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { Product } from '../product';
 import { UsernameService } from '../username.service';
 import { Firestore } from '@angular/fire/firestore';
 import { collection, doc, updateDoc } from '@angular/fire/firestore'; // Import updateDoc function
+import { addDoc } from 'firebase/firestore';
+import { WishlistComponent } from '../wishlist/wishlist.component';
 
 @Component({
   selector: 'app-products-location',
@@ -30,4 +32,13 @@ export class ProductsLocationComponent {
       console.error('Error purchasing product: Invalid username or product ID.');
     }
   }
+  firestor : Firestore = inject(Firestore);
+  add_to_wishlist (): void {
+  const username = this.usernameService.username;
+  const acollection = collection(this.firestor , 'wishlist')
+  addDoc(acollection,{
+    Id : this.product.id,
+    username : username
+  })
+}
 }

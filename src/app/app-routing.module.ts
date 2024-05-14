@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
@@ -9,6 +9,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { RegisterComponent } from './register/register.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,16 @@ const routes: Routes = [
     path:'analytics', 
     component: AnalyticsComponent , 
     title:"Analytics and Reporting"
+  },
+  {
+    path: 'home/:id',
+    component : HomeComponent ,
+    title: "Home details"  
+  },
+  {
+    path : 'wishlist',
+    component: WishlistComponent ,
+    title : "WishList Items"
   }
 
 ];
