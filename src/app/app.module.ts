@@ -24,6 +24,7 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 
 
+
 @NgModule({
 
     declarations: [
@@ -36,7 +37,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
     RegisterComponent,
     FeedbackComponent,
     UserprofileComponent,
-    AnalyticsComponent
+    AnalyticsComponent,
   ],
   imports: [
     BrowserModule,
