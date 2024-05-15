@@ -47,12 +47,5 @@ export class MessageService {
     return collectionData(sellerQuery, { idField: 'id' }) as Observable<Message[]>;
 }
   
-  
-
-  markAsRead(messageId: string) {
-    return this.firestore.collection('messages').doc(messageId).update({ isRead: true });
-  }
-
-
 
 }
