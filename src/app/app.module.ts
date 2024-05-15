@@ -25,6 +25,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 
 
+
 @NgModule({
 
     declarations: [

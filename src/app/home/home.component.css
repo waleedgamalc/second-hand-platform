@@ -40,7 +40,7 @@
     }    
   }
 
-  a {
+  .bbb {
     margin-left: 10px;
     padding: 10px;
     border: solid 1px var(--primary-color);
@@ -61,7 +61,5 @@
     text-decoration: none;
     cursor: pointer;
   }
-  
-  
   
   
