@@ -2,15 +2,10 @@
     <form>
       <input type="text" placeholder="Filter by product" #filter>
       <button class="primary" type="button" (click)="filterResults(filter.value)"> Search</button>
-      <a [routerLink]="['/sell']" class="primary">Sell item</a> 
-      <button><a [routerLink] = "['']">Logout</a></button>
-      <button><a [routerLink] = "['/userprofile']">userprofile</a></button>
       <button><a [routerLink] = "['/analytics']">Analytics and Reporting</a></button>
       <button><a [routerLink] = "['/wishlist']" > WishList </a></button>
-      
       <a  [routerLink]="['/sell']" class="primary bbb">Sell item</a> 
       <button class="bbb"><a [routerLink] = "['']">Logout</a></button>
-      <button class="bbb"><a [routerLink] = "['/analytics']">Analytics and Reporting</a></button>
       <a [routerLink]="['/userprofile']">
         <img class="brand-logo" style="margin-left: 720px;margin-top: 25px;  " src="assets\person-circle.svg" alt="logo" aria-hidden="true" width="90" height="110" >
       </a>   

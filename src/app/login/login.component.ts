@@ -15,12 +15,12 @@ export class LoginComponent {
   password: string = '';
 
   constructor (private firebaseService : FirebaseService, private router:Router, private userService: UsernameService){}
-
   login() {
     this.firebaseService.login(this.username, this.password)
-      .then((success) => {
-        if (success) {
+      .then((result) => {
+        if (result.success) {
           this.userService.username = this.username;
+          this.userService.userId = result.userId as string;
           const navigationExtras: NavigationExtras = {};
           this.router.navigate(['home'], navigationExtras);
           // alert("Login successful");
@@ -28,5 +28,9 @@ export class LoginComponent {
           alert("Login failed");
         }
       })
+      .catch((error) => {
+        console.error("Login error", error);
+        alert("An error occurred during login. Please try again.");
+      });
   }
 }
