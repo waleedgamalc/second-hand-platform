@@ -1,7 +1,7 @@
 <div class="chat-container">
     <h2>Conversation with {{ receiver }}</h2>
     <div class="messages-container" *ngFor="let message of messages">
-        <div class="message" [ngClass]="{ 'red-text': message.sender === username }">
+        <div class="message" [ngClass]="{ 'red-text': message.sender === username }" >
             <p class="message-text"><strong>{{message.sender}}:</strong> {{message.message}}</p>
             <span class="timestamp">{{message.timestamp}}</span>
         </div>

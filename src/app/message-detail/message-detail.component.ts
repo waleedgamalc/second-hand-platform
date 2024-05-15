@@ -14,23 +14,27 @@ import { UsernameService } from '../username.service';
 export class MessageDetailComponent implements OnInit {
   
 
+  
+  constructor(private route: ActivatedRoute, private messageService: MessageService , private firebaseService : FirebaseService , private userservice  : UsernameService) {}
   public messages: Message[] = [];
   receiver: string = this.route.snapshot.params['username'] // Seller
   newMessage: string = '';
-  username : String =  this.userservice.username
-  
-  constructor(private route: ActivatedRoute, private messageService: MessageService , private firebaseService : FirebaseService , private userservice  : UsernameService) {}
+  username : string =  this.userservice.username
+  productId: string = this.route.snapshot.params['id'] as string
+
+
   ngOnInit(): void {
-    this.messageService.getMessagesWithUser(this.receiver).subscribe(messages => {
+    this.messageService.getMessagesWithUser(this.productId).subscribe(messages => {
       this.messages = messages;
       this.sortMessagesByTimestamp(); // Sort messages after retrieving them
     });
   }
+
+
   // ngOnInit(): void {
   //   this.messageService.getMessagesWithUser(this.receiver).subscribe(messages => {
   //     this.messages = messages.filter(message =>
-  //       message.sender === this.receiver || message.receiver === this.receiver
-  //       && message.sender === this.username || message.receiver ===this.username
+  //       message.productid === this.productId
   //     );
   //     this.sortMessagesByTimestamp(); // Sort filtered messages after retrieving them
   //   });
@@ -46,7 +50,7 @@ export class MessageDetailComponent implements OnInit {
   
 
   sendMessage() {
-    this.messageService.sendMessage(this.receiver, this.newMessage).then(() => {
+    this.messageService.sendMessage(this.receiver, this.newMessage ,this.productId ).then(() => {
       this.newMessage = '';
     });
   }

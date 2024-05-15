@@ -14,16 +14,16 @@ export class MessageService {
   constructor(private Firestore: Firestore ,private firestore: AngularFirestore , private usernameService: UsernameService) {}
 
   // Sending Messages
-  sendMessage(receiver: string, message: string) {
+  sendMessage(receiver: string, message: string , productId: string) {
     const sender = this.usernameService.username;
     const timestamp = new Date().toISOString();
 
     return this.firestore.collection('messages').add({
+      productId,
       sender,
       receiver,
       message,
-      timestamp,
-      isRead: false
+      timestamp
     });
   }
 
@@ -36,16 +36,15 @@ export class MessageService {
   //   return collectionData(sellerQuery, { idField: 'id' }) as Observable<Message[]>;
 
   // }
-  getMessagesWithUser(username: string): Observable<Message[]> {
+  getMessagesWithUser(productId: string): Observable<Message[]> {
     const currentUserId = this.usernameService.username;
     
     const messages = collection(this.Firestore, 'messages'); 
     const sellerQuery = query(
         messages, 
-        where('receiver', '==', username)      );
+        where('productId', '==', productId)      );
 
     return collectionData(sellerQuery, { idField: 'id' }) as Observable<Message[]>;
 }
   
-
 }
