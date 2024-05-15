@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MessageService } from '../services/message.service';
 import { Message } from '../message';
 import { FirebaseService } from '../services/firebase.service';
+import { UsernameService } from '../username.service';
 
 
 @Component({
@@ -12,13 +13,13 @@ import { FirebaseService } from '../services/firebase.service';
 })
 export class MessageDetailComponent implements OnInit {
   
-  
+
   public messages: Message[] = [];
   receiver: string = this.route.snapshot.params['username']
   newMessage: string = '';
   
-  constructor(private route: ActivatedRoute, private messageService: MessageService , private firebaseService : FirebaseService) {}
-  
+  constructor(private route: ActivatedRoute, private messageService: MessageService , private firebaseService : FirebaseService , private userservice  : UsernameService) {}
+  username : String =  this.userservice.username
   ngOnInit(): void {
     this.messageService.getMessagesWithUser(this.receiver).subscribe(messages => {
       this.messages = messages;
