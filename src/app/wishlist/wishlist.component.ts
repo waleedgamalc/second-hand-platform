@@ -47,6 +47,7 @@ import { HomeComponent } from '../home/home.component';
 import { ProductService } from '../services/product.service';
 import { FirebaseService } from '../services/firebase.service';
 import { UsernameService } from '../username.service';
+import { prototype } from 'node:events';
 
 @Component({
   selector: 'app-wishlist',
@@ -56,8 +57,7 @@ import { UsernameService } from '../username.service';
 export class WishlistComponent implements OnInit{
   @Input() product!: Product;
   
-  productList!: Product[];
-  filteredWishList: Product[] | undefined;
+  Id_wishlist: string[] = [];
   prodList: Product[] = []
 
   constructor(
@@ -68,49 +68,53 @@ export class WishlistComponent implements OnInit{
 
   ngOnInit() {
     this.productService.productList$.subscribe((products) => {
-      console.log('Products fetched:', products);
-      this.productList = products;
-      this.filterwishlist();
+      // this.productList = products;
+      // console.log('Products fetched:', this.productList);
+      // this.filterwishlist();
       
 
       // Fetch feedbacks after products are fetched
-      this.fetchwishlists();
+      this.product_wishlist()
     });
   }
 
-  filterwishlist(){
-    this.filteredWishList = this.prodList.filter(wish => 
-      wish.username === this.userService.username
-    )
-    console.log("this is tthe secccoond list", this.filteredWishList)
-  }
+  // filterwishlist(){
+  //   this.filteredWishList = this.prodList.filter(wish => 
+  //     wish.username === this.userService.username
+  //   )
+  //   console.log("this is the filered wish list",this.filteredWishList)
+  //   // console.log("this is tthe secccoond list", this.filteredWishList)
+  // }
 
   fetchwishlists(){
-    this.fireservice.getwishlist().subscribe((wishes:Product[]) =>{
-      this.fireservice.getProducts().subscribe((prods: Product[]) =>{
-        for(let pro of wishes){
-          for (const pp of prods) {
-            if(pro.id == pp.id){
-              if(pro.username === this.userService.username){
-              console.log(this.userService.username)
-              this.prodList.push(pp);
+    this.fireservice.getwishlist(this.userService.username).subscribe((wishes:Product[]) =>{
 
-            }
-          }
+        for(let x of wishes){
+
+          this.Id_wishlist.push(x.id)
+         
         }
-      }
-    })
+      
     })
   }
-  // loadWishlistProducts() {
-  //   this.wishlistService.getProductsFromWishlist().subscribe(
-  //     (products: Product[]) => {
-  //       // this.wishlist_products.push(products);
-  //       console.log(products)
-  //     },
-  //     error => {
-  //       console.error('Error fetching wishlist products:', error);
-  //     }
-  //   );
-  // }
+  product_wishlist() {
+    // Clear the prodList array before adding new products
+    this.fetchwishlists() 
+    this.prodList = [];
+  
+    // Loop through each id in Id_wishlist
+    for (const wishId of this.Id_wishlist) {
+      // Find the product with the matching id
+      const product = this.productService.getProductLocationById(wishId);
+      console.log("Helllllllllllllllllllllllllllllllllllllllllllllllllll")
+      // If product is found, add it to prodList
+      console.log(this.prodList)
+        if (product) {
+            this.prodList.push(product);
+        }
+    }
+}
+
+
+
 }
