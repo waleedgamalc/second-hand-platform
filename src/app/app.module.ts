@@ -23,6 +23,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { MessageListComponent } from './message-list/message-list.component';
+import { MessageDetailComponent } from './message-detail/message-detail.component';
 
 
 
@@ -39,7 +41,9 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     FeedbackComponent,
     UserprofileComponent,
     AnalyticsComponent,
-    WishlistComponent
+    WishlistComponent,
+    MessageListComponent,
+    MessageDetailComponent
   ],
   imports: [
     BrowserModule,

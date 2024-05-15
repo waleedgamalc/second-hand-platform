@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Product } from '../product';
-import { getFirestore,addDoc, DocumentReference, query, where } from 'firebase/firestore';
+import { getFirestore,addDoc, DocumentReference, query, where, getDocs } from 'firebase/firestore';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import {AngularFireAuth} from '@angular/fire/compat/auth'
 import { AngularFirestore } from '@angular/fire/compat/firestore'
@@ -22,19 +22,22 @@ export class FirebaseService {
   constructor(private firestore: Firestore , private AngularfireStore: AngularFirestore) { }
   collectionRef = this.AngularfireStore.collection('users');
 
-  //Login
-  login(username: string, password: string): Promise<boolean> {
-    return new Promise<boolean>((resolve, reject) => {
+ //Login
+  login(username: string, password: string): Promise<{ success: boolean, userId?: string }> {
+    return new Promise<{ success: boolean, userId?: string }>((resolve, reject) => {
       this.collectionRef.get() 
         .subscribe(snapshot => {
+          let found = false;
           snapshot.forEach(doc => {
-            
             const userData = doc.data() as UserData;
             if (userData.username === username && userData.password === password) {
-              resolve(true); // User found, login successful
+              found = true;
+              resolve({ success: true, userId: doc.id }); // User found, return user ID
             }
           });
-          resolve(false); // User not found or incorrect password, login failed
+          if (!found) {
+            resolve({ success: false }); // User not found or incorrect password
+          }
         }, error => {
           reject(error);
         });
@@ -61,5 +64,15 @@ export class FirebaseService {
     const sellerQuery = query(productCollection, where('username', '==', username));
     return collectionData(sellerQuery, { idField: 'id' }) as Observable<Product[]>;
   }
+
+  // // Read SellerId for a specific seller
+  // async getSellerIdForSeller(username: string): Promise<String> {
+  //   const productCollection = collection(this.firestore, 'users');
+  //   const sellerQuery = query(productCollection, where('username', '==', username));
+  //   const querySnapshot = getDocs(sellerQuery);
+  //   const doc = (await querySnapshot).docs[0];
+  //     return doc.id;
+   
+  // }
 
 }

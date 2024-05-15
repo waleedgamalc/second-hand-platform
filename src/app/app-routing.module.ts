@@ -10,6 +10,8 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { RegisterComponent } from './register/register.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { MessageListComponent } from './message-list/message-list.component';
+import { MessageDetailComponent } from './message-detail/message-detail.component';
 
 const routes: Routes = [
   {
@@ -62,6 +64,14 @@ const routes: Routes = [
     path : 'wishlist',
     component: WishlistComponent ,
     title : "WishList Items"
+  },
+  { 
+  path: 'messages', 
+  component: MessageListComponent
+  },
+  { 
+  path: 'messages/:username',
+  component: MessageDetailComponent
   }
 
 ];

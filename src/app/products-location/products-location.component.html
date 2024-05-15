@@ -4,5 +4,6 @@
   <p class="listing-location">{{product.username}} - {{ product.price}} EG - {{product.state}}</p>
   <a [routerLink]="['/details', product.id]">Learn More</a>
   <a [routerLink]="['/home' , product.id]" (click)="add_to_wishlist()">Add to WishList</a>
+  <a *ngIf="product.username !== username_not_buy" [routerLink]="['/messages', product.username]">Chat</a>
   <button *ngIf="product.state !== 'Sold' && product.username !== username_not_buy" (click)="buyProduct()" [routerLink]="['/feedback', product.username]">Buy</button>
 </section>
