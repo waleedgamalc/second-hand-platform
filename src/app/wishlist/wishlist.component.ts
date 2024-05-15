@@ -74,7 +74,7 @@ export class WishlistComponent implements OnInit{
       
 
       // Fetch feedbacks after products are fetched
-      this.product_wishlist()
+      this.fetchwishlists()
     });
   }
 
@@ -91,29 +91,29 @@ export class WishlistComponent implements OnInit{
 
         for(let x of wishes){
 
-          this.Id_wishlist.push(x.id)
+          this.prodList.push(x)
          
         }
       
     })
   }
-  product_wishlist() {
-    // Clear the prodList array before adding new products
-    this.fetchwishlists() 
-    this.prodList = [];
-  
-    // Loop through each id in Id_wishlist
-    for (const wishId of this.Id_wishlist) {
-      // Find the product with the matching id
-      const product = this.productService.getProductLocationById(wishId);
-      console.log("Helllllllllllllllllllllllllllllllllllllllllllllllllll")
-      // If product is found, add it to prodList
-      console.log(this.prodList)
-        if (product) {
-            this.prodList.push(product);
-        }
-    }
-}
+//   product_wishlist() {
+//     // Clear the prodList array before adding new products
+//     this.fetchwishlists() 
+//     this.prodList = [];
+    
+//     // Loop through each id in Id_wishlist
+//     for (const wishId of this.Id_wishlist) {
+//       // Find the product with the matching id
+//       const product = this.productService.getProductLocationById(wishId);
+//       // If product is found, add it to prodList
+//       console.log(this.prodList)
+//         if (product) {
+//             this.prodList.push(product);
+//         }
+//     }
+    
+// }
 
 
 

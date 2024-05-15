@@ -42,12 +42,12 @@ export class ProductsLocationComponent {
   addDoc(acollection,{
     id : this.product.id,
     username : username,
-    // name : this.product.name,
-    // price: this.product.price,
-    // description: this.product.description,
-    // state: this.product.state,
-    // photo: this.product.photo,
-    // buyer: this.product.buyer,
+    name : this.product.name,
+    price: this.product.price,
+    description: this.product.description,
+    state: this.product.state,
+    photo: this.product.photo,
+    buyer: this.product.buyer,
   })
 }
 
