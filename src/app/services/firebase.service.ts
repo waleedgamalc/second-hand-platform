@@ -75,4 +75,10 @@ export class FirebaseService {
    
   // }
 
+  getwishlist(username: string): Observable<Product[]>{
+    const wishlistCollection = collection(this.firestore, "wishlist");
+    const wishquey = query(wishlistCollection, where('username', '==', username));
+    return collectionData(wishquey, {idField: "id"}) as Observable<Product[]>;
+  }
+  
 }

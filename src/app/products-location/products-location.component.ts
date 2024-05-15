@@ -5,6 +5,8 @@ import { Firestore } from '@angular/fire/firestore';
 import { collection, doc, updateDoc } from '@angular/fire/firestore'; // Import updateDoc function
 import { addDoc } from 'firebase/firestore';
 import { WishlistComponent } from '../wishlist/wishlist.component';
+import { DocumentReference } from '@angular/fire/firestore';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-products-location',
@@ -14,7 +16,7 @@ import { WishlistComponent } from '../wishlist/wishlist.component';
 export class ProductsLocationComponent {
   @Input() product!: Product;
 
-  constructor(private usernameService: UsernameService, private firestore: Firestore) {}
+  constructor(private usernameService: UsernameService, private firestore: Firestore , private productService : ProductService) {}
   username_not_buy : string = this.usernameService.username;
 
   async buyProduct(): Promise<void> {
@@ -33,12 +35,20 @@ export class ProductsLocationComponent {
     }
   }
   firestor : Firestore = inject(Firestore);
+  
   add_to_wishlist (): void {
   const username = this.usernameService.username;
   const acollection = collection(this.firestor , 'wishlist')
   addDoc(acollection,{
-    Id : this.product.id,
-    username : username
+    id : this.product.id,
+    username : username,
+    // name : this.product.name,
+    // price: this.product.price,
+    // description: this.product.description,
+    // state: this.product.state,
+    // photo: this.product.photo,
+    // buyer: this.product.buyer,
   })
 }
+
 }
