@@ -70,7 +70,7 @@ const routes: Routes = [
   component: MessageListComponent
   },
   { 
-  path: 'messages/:username',
+  path: 'messages/:username/:id',
   component: MessageDetailComponent
   }
 
